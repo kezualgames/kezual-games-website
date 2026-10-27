@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kezual Games — Mobile game studio</title>
+<meta name="description" content="Kezual Games is a mobile game studio making casual games you can pick up in a queue and still be playing at your stop.">
+
+<meta property="og:title" content="Kezual Games — Mobile game studio">
+<meta property="og:description" content="Casual mobile games you can pick up in a queue and still be playing at your stop.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#14142B;
+  --ink-soft:#3A3A55;
+  --bg:#F3F4FA;
+  --accent:#FF8A3D;
+  --dark:#14142B;
+  --card:#22223D;
+  --card-text:#C9C9E0;
+  --chip:#34345A;
+  --display:'Bricolage Grotesque', system-ui, sans-serif;
+  --body:'DM Sans', system-ui, -apple-system, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);letter-spacing:-0.03em;margin:0}
+p{margin:0}
+a{color:var(--ink)}
+a:hover{color:#3A3A66}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:24px}
+
+/* Header */
+.site-header{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding-block:20px}
+.brand{display:block;flex-shrink:0}
+.brand img{height:44px;width:auto}
+.nav{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav a{padding:12px 16px;font-weight:500;text-decoration:none;border-radius:999px}
+.nav a.cta{background:var(--ink);color:#fff;font-weight:700;padding-inline:20px}
+.nav a.cta:hover{background:#2A2A50;color:#fff}
+
+/* Hero */
+.hero{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding-block:56px 72px}
+.hero__copy{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.eyebrow{font-weight:700;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;color:#4A4A6A}
+.hero h1{font-weight:800;font-size:clamp(44px,7vw,88px);line-height:0.95;letter-spacing:-0.035em}
+.lede{font-size:19px;line-height:1.55;max-width:520px;color:var(--ink-soft)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.btn{padding:16px 28px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none;display:inline-block}
+.btn--solid{background:var(--accent);color:var(--ink)}
+.btn--solid:hover{background:#FF7A24;color:var(--ink)}
+.btn--ghost{border:2px solid var(--ink);color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:#fff}
+
+.phones{flex:1 1 380px;min-width:0;display:flex;justify-content:center;align-items:center;height:440px;position:relative}
+.phone{position:absolute;width:210px;height:420px;border-radius:36px;background:var(--dark);box-shadow:0 30px 60px rgba(20,20,43,0.25);padding:10px}
+.phone__screen{width:100%;height:100%;border-radius:28px;display:flex;align-items:center;justify-content:center}
+.phone--a{transform:rotate(-10deg) translateX(-90px)}
+.phone--b{transform:rotate(8deg) translateX(90px) translateY(20px)}
+.orb{width:90px;height:90px;border-radius:50%;background:#FFD23F;box-shadow:0 0 0 18px rgba(255,255,255,0.18)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:28px 18px;align-content:center;width:100%;height:100%;border-radius:28px}
+.tiles span{aspect-ratio:1;border-radius:10px;display:block}
+
+/* Games */
+.games{background:var(--dark);color:#fff;padding-block:88px}
+.games .wrap{display:flex;flex-direction:column;gap:40px}
+.section-head{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
+.section-head h2{font-weight:800;font-size:clamp(36px,5vw,56px);line-height:1}
+.section-head p{font-size:17px;color:var(--card-text);max-width:420px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.game{background:var(--card);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.game__art{height:200px;display:flex;align-items:center;justify-content:center}
+.game__body{padding:24px;display:flex;flex-direction:column;gap:12px;flex-grow:1}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--chip);color:#E4E4F5}
+.chip--accent{background:var(--accent);color:var(--ink)}
+.game h3{font-weight:800;font-size:26px;letter-spacing:-0.02em}
+.game p{font-size:16px;line-height:1.5;color:var(--card-text);flex-grow:1}
+.stores{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.store{padding:12px 16px;border-radius:12px;background:#fff;color:var(--ink);font-weight:700;font-size:14px;text-decoration:none}
+.store:hover{background:#E8E8F5;color:var(--ink)}
+.game--soon{background:transparent;border:2px dashed #4A4A75;justify-content:center;align-items:flex-start;gap:12px;padding:32px;min-height:360px}
+.game--soon h3{margin-top:4px}
+.game--soon p{flex-grow:0}
+
+/* Studio */
+.studio{display:flex;flex-wrap:wrap;gap:48px;padding-block:96px}
+.studio__title{flex:1 1 360px;min-width:0}
+.studio__title h2{font-weight:800;font-size:clamp(36px,5vw,56px);line-height:1}
+.studio__body{flex:2 1 480px;min-width:0;display:flex;flex-direction:column;gap:32px}
+.studio__body>p{font-size:21px;line-height:1.55;color:#2A2A45}
+.values{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.value{background:#fff;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.value h3{font-family:var(--body);font-size:18px;font-weight:700;letter-spacing:normal}
+.value p{font-size:15px;line-height:1.5;color:#4A4A6A}
+
+/* Footer */
+.site-footer{background:var(--accent);padding-block:88px 40px}
+.site-footer .wrap{display:flex;flex-direction:column;gap:56px}
+.footer-top{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between}
+.footer-top>div{display:flex;flex-direction:column;gap:16px;flex:1 1 420px;min-width:0}
+.footer-top h2{font-weight:800;font-size:clamp(40px,6vw,72px);line-height:0.95;letter-spacing:-0.035em}
+.footer-top p{font-size:18px;line-height:1.5;max-width:480px}
+.mailto{padding:18px 30px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;font-size:18px;text-decoration:none;white-space:nowrap}
+.mailto:hover{background:#2A2A50;color:#fff}
+.footer-bottom{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;border-top:2px solid var(--ink);padding-top:24px}
+.footer-bottom img{height:28px;width:auto}
+.social{display:flex;flex-wrap:wrap;gap:4px}
+.social a{padding:12px;font-weight:500;text-decoration:none}
+.copyright{font-size:14px}
+
+@media (max-width:760px){
+  .phones{height:360px;transform:scale(0.82)}
+  .site-footer{padding-block:64px 32px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Kezual Games home">
+      <img src="assets/logo-dark.svg" alt="Kezual Games">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#games">Games</a>
+      <a href="#studio">Studio</a>
+      <a href="#contact" class="cta">Contact us</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero__copy">
+      <p class="eyebrow">Mobile game studio</p>
+      <h1>Small games.<br>Big thumbs.<br>Zero homework.</h1>
+      <p class="lede">We make casual mobile games you can pick up in a queue and still be playing at your stop. [ONE-LINE STUDIO DESCRIPTION]</p>
+      <div class="btn-row">
+        <a class="btn btn--solid" href="#games">See our games</a>
+        <a class="btn btn--ghost" href="#contact">Work with us</a>
+      </div>
+    </div>
+    <div class="phones" aria-hidden="true">
+      <div class="phone phone--a">
+        <div class="phone__screen" style="background:#6C5CE7"><div class="orb"></div></div>
+      </div>
+      <div class="phone phone--b">
+        <div class="tiles" style="background:var(--accent)">
+          <span style="background:#fff"></span><span style="background:#14142B"></span><span style="background:#fff"></span>
+          <span style="background:#14142B"></span><span style="background:#FFD23F"></span><span style="background:#14142B"></span>
+          <span style="background:#fff"></span><span style="background:#14142B"></span><span style="background:#fff"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="games" id="games">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our games</h2>
+      <p>Free to download on iOS and Android. Tap a game to find it in your store.</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="game">
+        <div class="game__art" style="background:#6C5CE7" aria-hidden="true"><div class="orb"></div></div>
+        <div class="game__body">
+          <div class="chips"><span class="chip">[GENRE]</span><span class="chip chip--accent">New</span></div>
+          <h3>[GAME TITLE 1]</h3>
+          <p>[One or two lines on what makes this game fun.]</p>
+          <div class="stores">
+            <a class="store" href="#">App Store</a>
+            <a class="store" href="#">Google Play</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="game">
+        <div class="game__art" style="background:var(--accent);display:grid;grid-template-columns:repeat(4,36px);gap:8px;justify-content:center;align-content:center" aria-hidden="true">
+          <span style="height:36px;border-radius:8px;background:#14142B"></span><span style="height:36px;border-radius:8px;background:#fff"></span><span style="height:36px;border-radius:8px;background:#14142B"></span><span style="height:36px;border-radius:8px;background:#fff"></span>
+          <span style="height:36px;border-radius:8px;background:#fff"></span><span style="height:36px;border-radius:8px;background:#FFD23F"></span><span style="height:36px;border-radius:8px;background:#fff"></span><span style="height:36px;border-radius:8px;background:#14142B"></span>
+        </div>
+        <div class="game__body">
+          <div class="chips"><span class="chip">[GENRE]</span></div>
+          <h3>[GAME TITLE 2]</h3>
+          <p>[One or two lines on what makes this game fun.]</p>
+          <div class="stores">
+            <a class="store" href="#">App Store</a>
+            <a class="store" href="#">Google Play</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="game">
+        <div class="game__art" style="background:#00B894;align-items:flex-end;gap:12px;padding-bottom:44px" aria-hidden="true">
+          <span style="width:28px;height:50px;border-radius:8px;background:#14142B"></span><span style="width:28px;height:90px;border-radius:8px;background:#fff"></span><span style="width:28px;height:70px;border-radius:8px;background:#FFD23F"></span><span style="width:28px;height:110px;border-radius:8px;background:#14142B"></span>
+        </div>
+        <div class="game__body">
+          <div class="chips"><span class="chip">[GENRE]</span></div>
+          <h3>[GAME TITLE 3]</h3>
+          <p>[One or two lines on what makes this game fun.]</p>
+          <div class="stores">
+            <a class="store" href="#">App Store</a>
+            <a class="store" href="#">Google Play</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="game">
+        <div class="game__art" style="background:#FFD23F;gap:14px" aria-hidden="true">
+          <span style="width:64px;height:64px;border-radius:50%;background:#14142B"></span>
+          <span style="width:0;height:0;border-left:34px solid transparent;border-right:34px solid transparent;border-bottom:60px solid var(--accent)"></span>
+          <span style="width:60px;height:60px;border-radius:12px;background:#6C5CE7"></span>
+        </div>
+        <div class="game__body">
+          <div class="chips"><span class="chip">[GENRE]</span></div>
+          <h3>[GAME TITLE 4]</h3>
+          <p>[One or two lines on what makes this game fun.]</p>
+          <div class="stores">
+            <a class="store" href="#">App Store</a>
+            <a class="store" href="#">Google Play</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="game">
+        <div class="game__art" style="background:#FF7EB6" aria-hidden="true">
+          <span style="width:140px;height:70px;border-radius:70px 70px 0 0;background:#fff;position:relative;top:16px;display:block"></span>
+        </div>
+        <div class="game__body">
+          <div class="chips"><span class="chip">[GENRE]</span></div>
+          <h3>[GAME TITLE 5]</h3>
+          <p>[One or two lines on what makes this game fun.]</p>
+          <div class="stores">
+            <a class="store" href="#">App Store</a>
+            <a class="store" href="#">Google Play</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="game game--soon">
+        <span class="chip chip--accent">In development</span>
+        <h3>Something new is loading…</h3>
+        <p>[A teaser line about your next release.]</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="studio" id="studio">
+    <div class="studio__title"><h2>The studio</h2></div>
+    <div class="studio__body">
+      <p>[Two or three sentences about Kezual Games: when you started, who's on the team and what you care about when you make a game.]</p>
+      <div class="values">
+        <div class="value">
+          <h3>Easy to start</h3>
+          <p>One-tap controls and no tutorials to sit through.</p>
+        </div>
+        <div class="value">
+          <h3>Short sessions</h3>
+          <p>Built for a coffee break, a bus ride or a queue.</p>
+        </div>
+        <div class="value">
+          <h3>Made to replay</h3>
+          <p>Easy to learn, satisfying to master.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <h2>Let’s make something fun.</h2>
+        <p>Publishing, partnerships, press or just a hello — we read everything.</p>
+      </div>
+      <a class="mailto" href="mailto:hello@kezualgames.com">[YOUR EMAIL]</a>
+    </div>
+    <div class="footer-bottom">
+      <img src="assets/logo-dark.svg" alt="Kezual Games">
+      <nav class="social" aria-label="Social and legal">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Privacy policy</a>
+      </nav>
+      <span class="copyright">© 2026 Kezual Games</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
